@@ -50,6 +50,18 @@ let contatos = [
     { nome: "Érica", email: "erica@email.com", assunto: "Dúvida", mensagem: "Como faço para alterar meu endereço?" }
   ];
   
-const filtro = contatos.map(contato => 'assunto: ' + `${contato.assunto}` + ' email: ' + `${contato.email}` )
+const ordem = { "Dúvida": 1, "Suporte Técnico": 2, "Sugestão": 3 };
 
-document.write(filtro);
+  // Ordena os contatos de acordo com a ordem dos assuntos
+  contatos.sort((a, b) => ordem[a.assunto] - ordem[b.assunto]);
+
+
+
+const filtro = contatos.map(contato => 'ASSUNTO: ' + `${contato.assunto}` + ' EMAIL: ' + `${contato.email}` + '<br>' )
+
+document.write(filtro.join(''));
+
+
+
+
+
