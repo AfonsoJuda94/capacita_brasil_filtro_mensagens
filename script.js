@@ -53,7 +53,7 @@ let contatos = [
 const ordem = { "Dúvida": 1, "Suporte Técnico": 2, "Sugestão": 3 };
 
   // Ordena os contatos de acordo com a ordem dos assuntos
-  contatos.sort((a, b) => ordem[a.assunto] - ordem[b.assunto]);
+contatos.sort((a, b) => ordem[a.assunto] - ordem[b.assunto]);
 
 
 
@@ -61,7 +61,25 @@ const filtro = contatos.map(contato => 'ASSUNTO: ' + `${contato.assunto}` + ' EM
 
 document.write(filtro.join(''));
 
+const totalDuvidas = contatos.reduce((contador, contato) => {
+    return contato.assunto === "Dúvida" ? contador + 1 : contador;
+}, 0);
 
+console.log(`Total de dúvidas: ${totalDuvidas}`);
+
+
+const totalSuporte = contatos.reduce((contador, contato) => {
+    return contato.assunto === "Suporte Técnico" ? contador + 1 : contador;
+}, 0);
+
+console.log(`Total de suporte: ${totalSuporte}`);
+
+
+const totalSugestao = contatos.reduce((contador, contato) => {
+    return contato.assunto === "Sugestão" ? contador + 1 : contador;
+}, 0);
+
+console.log(`Total de sugestões: ${totalSugestao}`);
 
 
 
